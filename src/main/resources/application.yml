@@ -5,6 +5,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
   type-aliases-package: com.moviestorage.moviestorage.vo
+  type-handlers-package: com.moviestorage.moviestorage.type
 
 logging:
   level:

@@ -16,8 +16,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public List<UserVO> getAllUsers() throws Exception {
-        List<UserVO> rst = userMapper.selectAllUsers();
-        return rst;
+        return userMapper.selectAllUsers();
     }
 
 }

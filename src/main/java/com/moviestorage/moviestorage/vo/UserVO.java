@@ -1,5 +1,6 @@
 package com.moviestorage.moviestorage.vo;
 
+import com.moviestorage.moviestorage.type.SexType;
 import lombok.*;
 
 
@@ -13,6 +14,8 @@ public class UserVO {
     private String username;
     private String name;
     private int age;
-    private String sex;
+    private SexType sex;
+//    private String sex;
 
 }
+

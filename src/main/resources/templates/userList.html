@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
 
@@ -22,10 +22,10 @@
     <div class="col" th:text="${user.username}">사용자 ID</div>
     <div class="col" th:text="${user.name}">이름</div>
     <div class="col" th:text="${user.age}">나이</div>
-    <div class="col" th:switch="${user.sex}">
-        <span th:case="M">남성</span>
-        <span th:case="W">여성</span>
-        <span th:case="N">논 바이너리</span>
+    <div class="col" th:switch="${user.sex.getSex()}">
+        <span th:case="MALE">남성</span>
+        <span th:case="FEMALE">여성</span>
+        <span th:case="NON_BINARY">논 바이너리</span>
     </div>
 </div>
 
