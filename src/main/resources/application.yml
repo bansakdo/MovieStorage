@@ -8,7 +8,20 @@ mybatis:
   type-handlers-package: com.moviestorage.moviestorage.type
 
 logging:
+  config: classpath:log4j2.yml
   level:
     com:
       moviestorage: debug
 
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
+  freemarker:
+    cache: false
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/

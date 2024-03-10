@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class VideoService {
     @Autowired
-    VideoMapper videoMapper;
+    private VideoMapper videoMapper;
 
     public List<VideoVO> getAllVideos() {
 
@@ -22,6 +22,13 @@ public class VideoService {
         for (VideoVO vo : videoList) {
             vo.createActorList();
         }
+
+        return videoList;
+    }
+
+    public List<VideoVO> searchVideos(String keyword) {
+
+        List<VideoVO> videoList = videoMapper.selectVideos();
 
         return videoList;
     }

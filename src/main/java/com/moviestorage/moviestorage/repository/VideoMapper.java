@@ -9,5 +9,6 @@ import java.util.List;
 public interface VideoMapper {
 
     public List<VideoVO> selectAllVideos();
+    public List<VideoVO> selectVideos();
 
 }

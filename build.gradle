@@ -1,14 +1,19 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.3'
+	id 'org.springframework.boot' version '3.2.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
 
 group = 'com.moviestorage'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '21'
 
 configurations {
+	all {
+		// spring boot의 기본은 logback이기 때문에 log4j를 사용사기 위해 제외시킴. (아래에 log4j2를 위한 설정 존재)
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
+
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -19,16 +24,27 @@ repositories {
 }
 
 dependencies {
-	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'			// thymleaf 레이아웃 템플릿
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	//runtimeOnly 'mysql:mysql-connector-java:8.0.25'
 	implementation 'org.mariadb.jdbc:mariadb-java-client'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+
+	/*
+	Log4j2 설정
+	jackson 의존성 설정한 이유는 설정파일을 xml이 아닌 yaml로 작성하기 위함.
+	slf4j-impl, slf4j-api, log4j-api 등등을 제외한 이유는 spring-boot-starter-log4j2에 포함되어 있기 때문
+	* */
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2'			// log4j2
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.1'
 }
 
 tasks.named('test') {

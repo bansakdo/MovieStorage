@@ -1,0 +1,87 @@
+Configutation:
+  name: Default
+  status: warn
+
+  Properties:
+    Property:
+      - name: log-path
+        value: "logs"
+      - name: pattern
+        value: "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+      - name: charset-UTF-8
+        value: "UTF-8"
+
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        charset: ${charset-UTF-8}
+        pattern: ${pattern}
+        disableAnsi: false
+    File:
+      name: File_Appender
+      fileName: ${log-path}/logfile.log
+      PatternLayout:
+        charset: ${charset-UTF-8}
+        pattern: ${pattern}
+        disableAnsi: false
+    RollingFile:
+      - name: RollingFile_Appender
+        fileName: ${log-path}/rollingfile.log
+        filePattern: "logs/archive/rollingfile.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        PatternLayout:
+          charset: ${charset-UTF-8}
+          pattern: ${pattern}
+          disableAnsi: false
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 200 KB
+        DefaultRollOverStrategy:
+          max: 30
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: Console_Appender
+    Logger:
+      - name: moviestorage
+        additivity: false
+        level: debug
+        AppenderRef:
+          - ref: Console_Appender
+      - name: jdbc
+        additivity: false
+        level: warn
+        AppenderRef:
+          - ref: Console_Appender
+      - name: jdbc.connection
+        additivity: false
+        level: warn
+        AppenderRef:
+          - ref: Console_Appender
+      - name: jdbc.audit
+        additivity: false
+        level: warn
+        AppenderRef:
+          - ref: Console_Appender
+      - name: jdbc.resultset
+        additivity: false
+        level: warn
+        AppenderRef:
+          - ref: Console_Appender
+      - name: jdbc.sqlonly
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: Console_Appender
+      - name: jdbc.resultsettable
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: Console_Appender
+      - name: jdbc.sqltiming
+        additivity: false
+        level: warn
+        AppenderRef:
+          - ref: Console_Appender

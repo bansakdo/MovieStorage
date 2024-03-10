@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@SpringBootApplication
+@SpringBootApplication()
 public class MoviestorageApplication {
 
 	public static final String APPLICATION_LOCATIONS = "spring.config.location="

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--<head th:replace="~{fragment/layout/base :: common_header(~{::title}, ~{::link})}">-->
+<head th:replace="~{/fragment/layout/base :: common_header(~{::title}, ~{::link})}">
+
+    <title>layoutMain</title>
+    <link href="/css/theme-styles.css"
+          th:href="@{/css/theme-styles.css}"
+          rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <header>
+        <nav th:replace="~{/fragment/nav :: common_nav}"></nav>
+    </header>
+<!--    <main th:replace="~{${viewName}}">-->
+    <main layout:fragment="content">
+        <section class="container">
+        </section>
+    </main>
+    <footer th:replace="~{/fragment/footer :: base-footer}"> </footer>
+</body>
+</html>
