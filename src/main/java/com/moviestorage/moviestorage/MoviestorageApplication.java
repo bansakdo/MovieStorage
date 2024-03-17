@@ -9,7 +9,7 @@ public class MoviestorageApplication {
 
 	public static final String APPLICATION_LOCATIONS = "spring.config.location="
 			+ "classpath:application.yml, "
-			+ "classpath:dbInfo.yml";
+			+ "classpath:application-db.yml";
 
 	public static void main(String[] args) {
 //		SpringApplication.run(MoviestorageApplication.class, args);

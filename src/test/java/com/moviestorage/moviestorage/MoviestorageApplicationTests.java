@@ -13,7 +13,7 @@ class MoviestorageApplicationTests {
 	@Test
 	void contextLoads() {
 
-		VideoService videoService = new VideoService();
+//		VideoService videoService = new VideoService();
 
 
 	}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragment/layout/layoutMain}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <main layout:fragment="content">
+
+        <section class="container position-relative">
+            <form role="form" th:action="@{/login}" th:object="${userVO}" method="post">
+                <div class="row form-group">
+                    <div class="col-form-label-lg">
+<!--                        <label>ID</label>-->
+                        <label th:for="username"> ID  </label>
+<!--                        <input type="text" th:field="*{username}" class="form-control">-->
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-form-label-lg">
+                        <label  th:for="password"> PASSWORD
+<!--                            <input type="password" th:field="*{password}" class="form-control">-->
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-form-label-lg">
+                        <button type="submit" class="btn btn-primary" id="btnLogin"> 로그인 </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+
+    </main>
+
+</body>
+</html>

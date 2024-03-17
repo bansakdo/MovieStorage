@@ -9,9 +9,6 @@ mybatis:
 
 logging:
   config: classpath:log4j2.yml
-  level:
-    com:
-      moviestorage: debug
 
 spring:
   devtools:

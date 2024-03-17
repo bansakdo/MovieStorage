@@ -12,8 +12,12 @@ import java.util.List;
 @Slf4j
 @Service
 public class VideoService {
+    private final VideoMapper videoMapper;
+
     @Autowired
-    private VideoMapper videoMapper;
+    public VideoService(VideoMapper videoMapper) {
+        this.videoMapper = videoMapper;
+    }
 
     public List<VideoVO> getAllVideos() {
 

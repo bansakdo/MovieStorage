@@ -16,6 +16,7 @@ public class UserVO {
     private int age;
     private SexType sex;
 //    private String sex;
+    private String password;
 
 }
 

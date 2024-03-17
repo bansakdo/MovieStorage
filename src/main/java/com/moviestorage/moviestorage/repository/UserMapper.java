@@ -12,4 +12,8 @@ public interface UserMapper {
 
     public List<UserVO> selectAllUsers() throws Exception;
 
+    public boolean isExistUser(UserVO userVO) throws Exception;
+
+    public UserVO retrieveUser(String username) throws Exception;
+
 }

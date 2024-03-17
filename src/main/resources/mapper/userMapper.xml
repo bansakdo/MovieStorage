@@ -4,7 +4,36 @@
 
 <mapper namespace="com.moviestorage.moviestorage.repository.UserMapper">
 
+    <resultMap id="UserVO" type="com.moviestorage.moviestorage.vo.UserVO">
+        <id     column="id"         property="id"/>
+        <result column="username"   property="username"/>
+        <result column="name"       property="name"/>
+        <result column="age"        property="age"/>
+        <result column="sex"        property="sex"/>
+    </resultMap>
+
     <select id="selectAllUsers" resultType="UserVO">
+        SELECT
+            id
+             , username
+             , name
+             , age
+             , sex
+        FROM users
+    </select>
+
+
+    <select id="isExistUser" parameterType="UserVO" resultType="boolean">
+        SELECT IF (count(*) >= 1, 1, 0)
+        FROM users
+        WHERE 1=1
+            AND username = #{username}
+            <if test="password != null and !password.equals('')">
+                AND password = #{password}
+            </if>
+    </select>
+
+    <select id="retrieveUser" parameterType="String" resultType="UserVO">
         SELECT
             id
             , username
@@ -12,6 +41,8 @@
             , age
             , sex
         FROM users
+        WHERE 1=1
+        AND username = #{username}
     </select>
 
 </mapper>

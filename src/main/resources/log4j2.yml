@@ -7,7 +7,7 @@ Configutation:
       - name: log-path
         value: "logs"
       - name: pattern
-        value: "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        value: "%d %highlight{[%-5level]} [%style{%t}{bright,blue}] %style{%C}{bright,yellow}: %msg%n%throwable"
       - name: charset-UTF-8
         value: "UTF-8"
 
@@ -41,47 +41,47 @@ Configutation:
           max: 30
   Loggers:
     Root:
-      level: info
+      level: warn
       AppenderRef:
         - ref: Console_Appender
     Logger:
-      - name: moviestorage
-        additivity: false
+      - name: com.moviestorage.moviestorage
+        additivity: "false"
         level: debug
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc
-        additivity: false
+        additivity: "false"
         level: warn
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.connection
-        additivity: false
+        additivity: "false"
         level: warn
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.audit
-        additivity: false
+        additivity: "false"
         level: warn
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.resultset
-        additivity: false
+        additivity: "false"
         level: warn
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.sqlonly
-        additivity: false
-        level: info
+        additivity: "false"
+        level: warn
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.resultsettable
-        additivity: false
-        level: info
+        additivity: "false"
+        level: warn
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.sqltiming
-        additivity: false
-        level: warn
+        additivity: "false"
+        level: debug
         AppenderRef:
           - ref: Console_Appender

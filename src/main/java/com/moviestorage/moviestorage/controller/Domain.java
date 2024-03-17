@@ -3,7 +3,12 @@ package com.moviestorage.moviestorage.controller;
 
 import com.moviestorage.moviestorage.service.VideoService;
 import com.moviestorage.moviestorage.service.UserService;
+import com.moviestorage.moviestorage.vo.UserVO;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +19,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Domain {
 
 
-    @Autowired
     UserService userService;
-    @Autowired
     VideoService videoService;
+
+    @Autowired
+    public Domain(
+            UserService userService
+            , VideoService videoService
+    ) {
+        this.userService = userService;
+        this.videoService = videoService;
+    }
+
 
     @GetMapping({"/", "/index"})
     public String index(Model model) throws Exception {
@@ -72,5 +85,24 @@ public class Domain {
         return "searchResult";
     }
 
+
+    @GetMapping("/login")
+    public String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+
+        UserVO userVO = userService.retrieveUser("user1");
+        log.debug("USERNAME: " + userVO.getUsername());
+        log.debug("NAME: " + userVO.getName());
+        log.debug("AGE: " + userVO.getAge());
+
+
+
+        HttpSession session = request.getSession();
+        if (session == null || session.getAttribute("LOGIN_USER") == null || session.getAttribute("LOGIN_USER").equals("")) {
+            return "login";
+        } else {
+            return "redirect:/";
+        }
+    }
 
 }

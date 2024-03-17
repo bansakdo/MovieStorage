@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class UserService {
 
-//    @Autowired
     private UserMapper userMapper;
 
     @Autowired
@@ -23,5 +22,15 @@ public class UserService {
     public List<UserVO> getAllUsers() throws Exception {
         return userMapper.selectAllUsers();
     }
+
+    public boolean isExistUser(UserVO userVO) throws Exception {
+        return userMapper.isExistUser(userVO);
+    }
+
+    public UserVO retrieveUser(String username) throws Exception {
+        return userMapper.retrieveUser(username);
+    }
+
+
 
 }
