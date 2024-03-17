@@ -87,18 +87,19 @@ public class Domain {
 
 
     @GetMapping("/login")
-    public String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String login(HttpServletRequest request, Model model) throws Exception {
 
 
-        UserVO userVO = userService.retrieveUser("user1");
-        log.debug("USERNAME: " + userVO.getUsername());
-        log.debug("NAME: " + userVO.getName());
-        log.debug("AGE: " + userVO.getAge());
+//        UserVO userVO = userService.retrieveUser("user1");
+//        log.debug("USERNAME: " + userVO.getUsername());
+//        log.debug("NAME: " + userVO.getName());
+//        log.debug("AGE: " + userVO.getAge());
 
 
 
         HttpSession session = request.getSession();
         if (session == null || session.getAttribute("LOGIN_USER") == null || session.getAttribute("LOGIN_USER").equals("")) {
+            model.addAttribute("loginUser", new UserVO());
             return "login";
         } else {
             return "redirect:/";
