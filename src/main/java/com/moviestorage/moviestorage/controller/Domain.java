@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -94,6 +96,7 @@ public class Domain {
 //        log.debug("USERNAME: " + userVO.getUsername());
 //        log.debug("NAME: " + userVO.getName());
 //        log.debug("AGE: " + userVO.getAge());
+
 
 
 

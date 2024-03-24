@@ -3,12 +3,14 @@ package com.moviestorage.moviestorage.vo;
 import com.moviestorage.moviestorage.type.SexType;
 import lombok.*;
 
+import java.io.Serializable;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class UserVO {
+public class UserVO implements Serializable {
 
     private int id;
     private String username;
