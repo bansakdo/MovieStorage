@@ -19,11 +19,6 @@ spring:
     remote:
       restart:
         enabled: true
-  freemarker:
-    cache: false
-  thymeleaf:
-    cache: false
-    prefix: classpath:/templates/
   security:
     user:
       name: ${SECURITY_USER_NAME:user}
