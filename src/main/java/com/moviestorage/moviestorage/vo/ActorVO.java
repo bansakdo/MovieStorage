@@ -1,21 +1,41 @@
 package com.moviestorage.moviestorage.vo;
 
-import com.moviestorage.moviestorage.type.SexType;
+import com.moviestorage.moviestorage.type.GenderType;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Comment;
 
 import java.util.Date;
 
+@Entity(name = "actors")
 @Setter @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ActorVO {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Comment("배우명")
+    @Column(length = 20, nullable = false)
     private String name;
+
+    @Comment("생년월일")
+    @Column
     private Date birthday;
+
+    @Comment("프로필")
+    @Column
     private String profile;
-    private SexType sex;
+
+    @Comment("성별")
+    @Column(nullable = false)
+    private GenderType gender;
+
+    @Comment("출생")
+    @Column
     private String birthplace;
 
 

@@ -10,7 +10,7 @@ sourceCompatibility = '21'
 
 configurations {
 	all {
-		// spring boot의 기본은 logback이기 때문에 log4j를 사용사기 위해 제외시킴. (아래에 log4j2를 위한 설정 존재)
+		// spring boot의 기본은 logback이기 때문에 log4j를 사용하기 위해 제외시킴. (아래에 log4j2를 위한 설정 존재)
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
 	}
 
@@ -22,6 +22,7 @@ configurations {
 repositories {
 	mavenCentral()
 }
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -39,6 +40,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.assertj:assertj-core'
+	testImplementation 'org.mockito:mockito-core'
+
+
 
 
 	/*

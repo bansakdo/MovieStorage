@@ -8,25 +8,25 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SexHandler implements TypeHandler<SexType> {
+public class SexHandler implements TypeHandler<GenderType> {
     @Override
-    public void setParameter(PreparedStatement ps, int i, SexType parameter, JdbcType jdbcType) throws SQLException {
-        ps.setString(i, parameter.getSex());
+    public void setParameter(PreparedStatement ps, int i, GenderType parameter, JdbcType jdbcType) throws SQLException {
+        ps.setString(i, parameter.getGender());
     }
 
     @Override
-    public SexType getResult(ResultSet rs, String columnName) throws SQLException {
-        return SexType.valueOf(rs.getString(columnName));
+    public GenderType getResult(ResultSet rs, String columnName) throws SQLException {
+        return GenderType.valueOf(rs.getString(columnName));
     }
 
     @Override
-    public SexType getResult(ResultSet rs, int columnIndex) throws SQLException {
-        return SexType.valueOf(rs.getString(columnIndex));
+    public GenderType getResult(ResultSet rs, int columnIndex) throws SQLException {
+        return GenderType.valueOf(rs.getString(columnIndex));
     }
 
     @Override
-    public SexType getResult(CallableStatement cs, int columnIndex) throws SQLException {
-        return SexType.valueOf(cs.getString(columnIndex));
+    public GenderType getResult(CallableStatement cs, int columnIndex) throws SQLException {
+        return GenderType.valueOf(cs.getString(columnIndex));
     }
 
 }

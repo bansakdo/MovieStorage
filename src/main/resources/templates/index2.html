@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/css/bootstrap.css"
+          th:href="@{/css/bootstrap.css}"
+          rel="stylesheet" >
+    <script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+
+    <title>Movie Storage</title>
+</head>
+<body>
+<h1>Movie Storage Main</h1>
+
+<div class="search_box" style="width: 90%">
+    <select id="search_type">
+        <option th:value="all">전체</option>
+        <optgroup label="작품">
+            <option th:value="video">작품 전체</option>
+            <option th:value="movie">영화</option>
+            <option th:value="drama">TV</option>
+        </optgroup>
+        <option th:value="actor">배우</option>
+    </select>
+    <label for="search_text"></label><input type="text" id="search_text">
+    <button type="submit" class="btn btn-primary" th:onclick="">Search</button>
+</div>
+<button type="button" class="btn btn-primary" th:onclick="|location.href='/userList'|">User List</button>
+</body>
+</html>

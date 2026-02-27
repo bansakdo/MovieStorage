@@ -22,7 +22,7 @@
     <div class="col" th:text="${user.username}">사용자 ID</div>
     <div class="col" th:text="${user.name}">이름</div>
     <div class="col" th:text="${user.age}">나이</div>
-    <div class="col" th:switch="${user.sex.getSex()}">
+    <div class="col" th:switch="${user.getGender.getGender()}">
         <span th:case="MALE">남성</span>
         <span th:case="FEMALE">여성</span>
         <span th:case="NON_BINARY">논 바이너리</span>

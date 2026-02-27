@@ -7,6 +7,11 @@
 <!--    <meta charset="UTF-8">-->
 <!--    <title>Title</title>-->
 <!--</head>-->
+<head>
+    <title layout:fragment="title">Movie Storage</title>
+</head>
+
+
 <body>
 <!--    <main th:fragment="~{/fragment/layout/layoutMain :: base-content}">-->
     <main layout:fragment="content">
@@ -16,10 +21,10 @@
                 <div class="col-xl-6 text-center text-white">
                     <h1 class="mb-5">수백개의 영화, TV 프로그램, <br/>배우들을 검색해 보세요!</h1>
 
-                    <form class="label-lg" id="searchForm">
+                    <form class="label-lg" id="searchForm" th:action="@{/search}" method="get">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="영화, TV 프로그램, 인물 검색.." data-sb-validations="required" />
+                                <input type="text" class="form-control form-control-lg" id="keyword" name="keyword" placeholder="영화, TV 프로그램, 인물 검색.." data-sb-validations="required" />
                             </div>
                             <div class="col-auto"><button class="btn btn-primary btn-lg" id="searchButton" type="submit">검색</button></div>
                         </div>

@@ -1,12 +1,13 @@
 package com.moviestorage.moviestorage.type;
 
-public enum VideoType {
+public enum MediaType {
     TV("TV"),
-    MOVIE("MOVIE");
+    MOVIE("MOVIE")
+    ;
 
     private String videoType;
 
-    VideoType(String videoType) {
+    MediaType(String videoType) {
         this.videoType = videoType;
     }
 

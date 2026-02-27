@@ -42,8 +42,8 @@
             where mc.movie_id = m.id
         ) casting
         from movies m
-        where m.title like '%'#{keyword}'%'
-        or m.director like '%'#{keyword}'%'
+        where (m.title like CONCAT('%', #{keyword}, '%')
+           or m.director like CONCAT('%', #{keyword}, '%'))
         and m.type = #{type}
         ;
     </select>

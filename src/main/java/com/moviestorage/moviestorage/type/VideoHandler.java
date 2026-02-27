@@ -8,24 +8,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VideoHandler implements TypeHandler<VideoType> {
+public class VideoHandler implements TypeHandler<MediaType> {
     @Override
-    public void setParameter(PreparedStatement ps, int i, VideoType parameter, JdbcType jdbcType) throws SQLException {
+    public void setParameter(PreparedStatement ps, int i, MediaType parameter, JdbcType jdbcType) throws SQLException {
         ps.setString(i, parameter.getVideoType());
     }
 
     @Override
-    public VideoType getResult(ResultSet rs, String columnName) throws SQLException {
-        return VideoType.valueOf(rs.getString(columnName));
+    public MediaType getResult(ResultSet rs, String columnName) throws SQLException {
+        return MediaType.valueOf(rs.getString(columnName));
     }
 
     @Override
-    public VideoType getResult(ResultSet rs, int columnIndex) throws SQLException {
-        return VideoType.valueOf(rs.getString(columnIndex));
+    public MediaType getResult(ResultSet rs, int columnIndex) throws SQLException {
+        return MediaType.valueOf(rs.getString(columnIndex));
     }
 
     @Override
-    public VideoType getResult(CallableStatement cs, int columnIndex) throws SQLException {
-        return VideoType.valueOf(cs.getString(columnIndex));
+    public MediaType getResult(CallableStatement cs, int columnIndex) throws SQLException {
+        return MediaType.valueOf(cs.getString(columnIndex));
     }
 }

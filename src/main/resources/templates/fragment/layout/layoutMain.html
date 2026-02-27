@@ -4,7 +4,7 @@
 <!--<head th:replace="~{fragment/layout/base :: common_header(~{::title}, ~{::link})}">-->
 <head th:replace="~{/fragment/layout/base :: common_header(~{::title}, ~{::link})}">
 
-    <title>layoutMain</title>
+    <title layout:fragment="title">layoutMain</title>
     <link href="/css/theme-styles.css"
           th:href="@{/css/theme-styles.css}"
           rel="stylesheet" type="text/css"  />

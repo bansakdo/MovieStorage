@@ -1,6 +1,14 @@
 HELP.md
 .gradle
 build/
+
+### Secret (민감 정보) ###
+application-secret.yml
+**/application-secret.yml
+
+### Frontend ###
+frontend/node_modules/
+frontend/dist/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/

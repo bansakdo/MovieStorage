@@ -1,4 +1,4 @@
-Configutation:
+Configuration:
   name: Default
   status: warn
 
@@ -47,41 +47,41 @@ Configutation:
     Logger:
       - name: com.moviestorage.moviestorage
         additivity: "false"
-        level: debug
+        level: "debug"
         AppenderRef:
           - ref: Console_Appender
-      - name: jdbc
+      - name: jdbc.BaseJdbcLogger
         additivity: "false"
-        level: warn
+        level: "warn"
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.connection
         additivity: "false"
-        level: warn
+        level: "warn"
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.audit
         additivity: "false"
-        level: warn
+        level: "off"
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.resultset
         additivity: "false"
-        level: warn
+        level: "off"
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.sqlonly
         additivity: "false"
-        level: warn
+        level: "off"
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.resultsettable
         additivity: "false"
-        level: warn
+        level: "off"
         AppenderRef:
           - ref: Console_Appender
       - name: jdbc.sqltiming
         additivity: "false"
-        level: debug
+        level: "debug"
         AppenderRef:
           - ref: Console_Appender

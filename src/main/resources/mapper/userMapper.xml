@@ -9,7 +9,7 @@
         <result column="username"   property="username"/>
         <result column="name"       property="name"/>
         <result column="age"        property="age"/>
-        <result column="sex"        property="sex"/>
+        <result column="gender"     property="gender"/>
     </resultMap>
 
     <select id="selectAllUsers" resultType="UserVO">
@@ -18,7 +18,7 @@
              , username
              , name
              , age
-             , sex
+             , gender
         FROM users
     </select>
 
@@ -39,7 +39,7 @@
             , username
             , name
             , age
-            , sex
+            , gender
         FROM users
         WHERE 1=1
         AND username = #{username}
